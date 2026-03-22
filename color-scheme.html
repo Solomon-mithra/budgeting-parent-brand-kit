@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Budgeting Parent — Brand Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --color-ink: #131715;
+    --color-graphite: #222C2C;
+    --color-sage: #7a8474;
+    --color-lime: #c9f05a;
+    --color-lime-accent: #a7d645;
+    --color-amber: #f3b457;
+    --color-danger: #ef4444;
+    --color-mist: #f4f8ec;
+    --color-surface: rgba(255, 255, 255, 0.78);
+    --color-white: #ffffff;
+    --radius-card: 22px;
+    --radius-chip: 999px;
+  }
+
+  body {
+    font-family: 'Work Sans', sans-serif;
+    background: var(--color-mist);
+    color: var(--color-ink);
+    padding: 60px 40px 100px;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-weight: 700;
+    font-size: 2.4rem;
+    letter-spacing: -0.03em;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    color: var(--color-sage);
+    font-weight: 400;
+    margin-bottom: 56px;
+  }
+
+  .section-title {
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 28px;
+    margin-top: 72px;
+  }
+
+  /* ── Font Hero ── */
+  .font-hero {
+    background: linear-gradient(180deg, #1a211f 0%, #121614 100%);
+    border-radius: var(--radius-card);
+    padding: 56px 64px;
+    box-shadow: 0 16px 48px rgba(19,23,21,0.22);
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .font-hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(201,240,90,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .font-hero-name {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.03em;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .font-hero-sub {
+    font-size: 1.1rem;
+    color: var(--color-sage);
+    margin-bottom: 32px;
+    position: relative;
+  }
+  .font-hero-alphabet {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.06em;
+    line-height: 1.6;
+    margin-bottom: 4px;
+    position: relative;
+  }
+  .font-hero-alphabet-bold {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.06em;
+    line-height: 1.6;
+    position: relative;
+  }
+  .font-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+  }
+  .font-meta-item {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.35);
+  }
+  .font-meta-item span {
+    display: block;
+    color: var(--color-lime);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-top: 4px;
+  }
+
+  /* ── Weight Grid ── */
+  .weight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .weight-card {
+    background: #fff;
+    border-radius: var(--radius-card);
+    padding: 28px 24px;
+    box-shadow: 0 8px 28px rgba(19,23,21,0.06);
+    text-align: center;
+  }
+  .weight-card-sample {
+    font-size: 2.4rem;
+    letter-spacing: -0.03em;
+    margin-bottom: 12px;
+    color: var(--color-ink);
+  }
+  .weight-card-label {
+    font-size: 0.72rem;
+    color: var(--color-sage);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+  }
+
+  /* ── Type Scale ── */
+  .type-scale {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(19,23,21,0.08);
+  }
+  .type-scale-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 32px;
+    border-bottom: 1px solid rgba(19,23,21,0.06);
+  }
+  .type-scale-row:last-child { border-bottom: none; }
+  .type-scale-meta {
+    min-width: 180px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.72rem;
+    color: var(--color-sage);
+    line-height: 1.6;
+  }
+  .type-scale-sample {
+    color: var(--color-ink);
+    letter-spacing: -0.02em;
+  }
+
+  .clamp-demo {
+    background: rgba(255,255,255,0.78);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,0.65);
+    box-shadow: 0 12px 40px rgba(19,23,21,0.08);
+    border-radius: var(--radius-card);
+    padding: 32px 40px;
+    display: inline-block;
+    margin-top: 28px;
+  }
+  .clamp-label {
+    font-size: 0.78rem;
+    color: var(--color-sage);
+    margin-bottom: 4px;
+  }
+  .clamp-value {
+    font-size: clamp(1.6rem, 8vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--color-ink);
+  }
+  .clamp-formula {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.72rem;
+    color: var(--color-sage);
+    margin-top: 12px;
+  }
+
+  /* ── Color Cards Grid ── */
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 24px;
+  }
+  .color-card {
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 12px 40px rgba(19,23,21,0.08);
+    transition: transform 0.2s ease;
+  }
+  .color-card:hover { transform: translateY(-4px); }
+  .color-swatch {
+    height: 170px;
+    position: relative;
+  }
+  .color-swatch.checkerboard {
+    background-image:
+      linear-gradient(45deg, #ddd 25%, transparent 25%),
+      linear-gradient(-45deg, #ddd 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #ddd 75%),
+      linear-gradient(-45deg, transparent 75%, #ddd 75%);
+    background-size: 16px 16px;
+    background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+  }
+  .color-swatch.checkerboard .overlay { position: absolute; inset: 0; }
+  .color-info { padding: 20px; }
+  .color-name { font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
+  .color-hex { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.85rem; color: var(--color-ink); margin-bottom: 4px; }
+  .color-var { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.72rem; color: var(--color-sage); margin-bottom: 8px; }
+  .color-usage { font-size: 0.78rem; color: var(--color-sage); line-height: 1.45; }
+
+  /* ── Gradients ── */
+  .gradient-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  .gradient-card {
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 12px 40px rgba(19,23,21,0.08);
+  }
+  .gradient-swatch { height: 100px; }
+  .gradient-info { padding: 20px; }
+  .gradient-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 6px; }
+  .gradient-css { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.72rem; color: var(--color-sage); line-height: 1.6; word-break: break-all; }
+
+  /* ── Surface Treatments ── */
+  .surface-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .surface-demo {
+    padding: 36px;
+    border-radius: var(--radius-card);
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .surface-glass {
+    background: rgba(255,255,255,0.78);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,0.65);
+    box-shadow: 0 12px 40px rgba(19,23,21,0.08);
+  }
+  .surface-dark {
+    background: linear-gradient(180deg, #1a211f 0%, #121614 100%);
+    box-shadow: 0 16px 48px rgba(19,23,21,0.22);
+    color: #fff;
+  }
+  .surface-title { font-weight: 700; font-size: 1.05rem; margin-bottom: 12px; }
+  .surface-content { font-size: 0.85rem; color: var(--color-sage); line-height: 1.55; }
+  .surface-dark .surface-content { color: rgba(255,255,255,0.5); }
+  .surface-css {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.68rem;
+    color: var(--color-sage);
+    line-height: 1.8;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(122,132,116,0.15);
+  }
+  .surface-dark .surface-css { color: rgba(255,255,255,0.35); border-top-color: rgba(255,255,255,0.1); }
+
+  /* ── Chip Tokens ── */
+  .token-row { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 28px; }
+  .token-chip {
+    background: var(--color-ink);
+    color: var(--color-white);
+    padding: 8px 20px;
+    border-radius: var(--radius-chip);
+    font-size: 0.82rem;
+    font-weight: 500;
+  }
+  .token-chip.lime {
+    background: linear-gradient(135deg, var(--color-lime), var(--color-lime-accent));
+    color: var(--color-ink);
+  }
+
+  /* ── LinkedIn Banners ── */
+  .banner-wrapper { margin-bottom: 48px; }
+  .banner-label {
+    font-size: 0.75rem;
+    color: var(--color-sage);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+  }
+  .banner-preview {
+    width: 100%;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(19,23,21,0.15);
+  }
+  .banner-inner {
+    width: 1584px;
+    height: 396px;
+    transform-origin: top left;
+    font-family: 'Work Sans', sans-serif;
+  }
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #c9f05a, #a7d645);
+    color: #131715;
+    border: none;
+    border-radius: 999px;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .download-btn:hover { transform: scale(1.04); box-shadow: 0 4px 16px rgba(201,240,90,0.35); }
+  .download-btn:active { transform: scale(0.97); }
+
+  @media (max-width: 700px) {
+    .surface-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    body { padding: 36px 20px 80px; }
+    h1 { font-size: 1.8rem; }
+    .color-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .gradient-grid { grid-template-columns: 1fr; }
+    .font-hero { padding: 36px 28px; }
+    .font-hero-name { font-size: 2.6rem; }
+    .font-hero-alphabet, .font-hero-alphabet-bold { font-size: 1.2rem; }
+    .weight-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <h1><span style="color:#7a8474;font-weight:400">Budgeting</span><span style="font-weight:700">Parent</span> &mdash; Brand Kit</h1>
+  <p class="subtitle">Colors, typography, surfaces &amp; social assets</p>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  LOGO                                                       -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <h2 class="section-title" style="margin-top:0">Logo</h2>
+
+  <!-- Logo variant 1: Dark background -->
+  <div class="banner-wrapper">
+    <div class="banner-label">Variant 1 &mdash; On Dark</div>
+    <div style="background:linear-gradient(180deg,#1a211f 0%,#121614 100%);border-radius:22px;padding:80px;display:flex;align-items:center;justify-content:center;box-shadow:0 16px 48px rgba(19,23,21,0.22);position:relative;overflow:hidden" id="logo-dark">
+      <div style="position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(201,240,90,0.08) 0%,transparent 70%);pointer-events:none"></div>
+      <div style="font-family:'Work Sans',sans-serif;font-size:72px;letter-spacing:-0.03em;position:relative;z-index:1"><span style="color:#7a8474;font-weight:400">Budgeting</span><span style="color:#ffffff;font-weight:700">Parent</span></div>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+      <button class="download-btn" onclick="downloadLogo('logo-dark','BP_Logo_OnDark',200,false)">&#11015; 200px</button>
+      <button class="download-btn" onclick="downloadLogo('logo-dark','BP_Logo_OnDark',500,false)">&#11015; 500px</button>
+      <button class="download-btn" onclick="downloadLogo('logo-dark','BP_Logo_OnDark',1200,false)">&#11015; 1200px</button>
+      <button class="download-btn" onclick="downloadLogo('logo-dark','BP_Logo_OnDark',2400,false)">&#11015; 2400px</button>
+      <button class="download-btn" style="background:#131715;color:#fff;border:1px solid rgba(201,240,90,0.2)" onclick="downloadLogo('logo-dark','BP_Logo_Transparent',500,true)">&#11015; 500px transparent</button>
+      <button class="download-btn" style="background:#131715;color:#fff;border:1px solid rgba(201,240,90,0.2)" onclick="downloadLogo('logo-dark','BP_Logo_Transparent',1200,true)">&#11015; 1200px transparent</button>
+      <button class="download-btn" style="background:#131715;color:#fff;border:1px solid rgba(201,240,90,0.2)" onclick="downloadLogo('logo-dark','BP_Logo_Transparent',2400,true)">&#11015; 2400px transparent</button>
+    </div>
+  </div>
+
+  <!-- Logo variant 2: Light background -->
+  <div class="banner-wrapper">
+    <div class="banner-label">Variant 2 &mdash; On Light</div>
+    <div style="background:#f4f8ec;border-radius:22px;padding:80px;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 40px rgba(19,23,21,0.08);border:1px solid rgba(122,132,116,0.12);position:relative;overflow:hidden" id="logo-light">
+      <div style="position:absolute;bottom:-60px;left:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(201,240,90,0.15) 0%,transparent 70%);pointer-events:none"></div>
+      <div style="font-family:'Work Sans',sans-serif;font-size:72px;letter-spacing:-0.03em;position:relative;z-index:1"><span style="color:#7a8474;font-weight:400">Budgeting</span><span style="color:#131715;font-weight:700">Parent</span></div>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+      <button class="download-btn" onclick="downloadLogo('logo-light','BP_Logo_OnLight',200,false)">&#11015; 200px</button>
+      <button class="download-btn" onclick="downloadLogo('logo-light','BP_Logo_OnLight',500,false)">&#11015; 500px</button>
+      <button class="download-btn" onclick="downloadLogo('logo-light','BP_Logo_OnLight',1200,false)">&#11015; 1200px</button>
+      <button class="download-btn" onclick="downloadLogo('logo-light','BP_Logo_OnLight',2400,false)">&#11015; 2400px</button>
+      <button class="download-btn" style="background:#131715;color:#fff;border:1px solid rgba(201,240,90,0.2)" onclick="downloadLogo('logo-light','BP_Logo_Transparent_Light',500,true)">&#11015; 500px transparent</button>
+      <button class="download-btn" style="background:#131715;color:#fff;border:1px solid rgba(201,240,90,0.2)" onclick="downloadLogo('logo-light','BP_Logo_Transparent_Light',1200,true)">&#11015; 1200px transparent</button>
+      <button class="download-btn" style="background:#131715;color:#fff;border:1px solid rgba(201,240,90,0.2)" onclick="downloadLogo('logo-light','BP_Logo_Transparent_Light',2400,true)">&#11015; 2400px transparent</button>
+    </div>
+  </div>
+
+  <!-- Logo specs -->
+  <div style="background:#fff;border-radius:22px;padding:40px 48px;box-shadow:0 12px 40px rgba(19,23,21,0.08);margin-top:24px">
+    <div style="font-weight:700;font-size:1.1rem;margin-bottom:24px">Figma Replication Guide</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
+      <!-- "Budgeting" specs -->
+      <div>
+        <div style="font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:#c9f05a;margin-bottom:12px;background:#131715;display:inline-block;padding:4px 12px;border-radius:6px">Word 1: &ldquo;Budgeting&rdquo;</div>
+        <table style="width:100%;font-size:0.85rem;border-collapse:collapse">
+          <tr style="border-bottom:1px solid rgba(19,23,21,0.06)">
+            <td style="padding:10px 0;color:#7a8474;width:140px">Font Family</td>
+            <td style="padding:10px 0;font-weight:600">Work Sans</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(19,23,21,0.06)">
+            <td style="padding:10px 0;color:#7a8474">Font Weight</td>
+            <td style="padding:10px 0;font-weight:600">400 (Regular)</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(19,23,21,0.06)">
+            <td style="padding:10px 0;color:#7a8474">Color (dark bg)</td>
+            <td style="padding:10px 0;font-family:'SF Mono','Fira Code',monospace;font-size:0.8rem">#7a8474 <span style="display:inline-block;width:14px;height:14px;background:#7a8474;border-radius:3px;vertical-align:middle;margin-left:6px"></span></td>
+          </tr>
+          <tr>
+            <td style="padding:10px 0;color:#7a8474">Color (light bg)</td>
+            <td style="padding:10px 0;font-family:'SF Mono','Fira Code',monospace;font-size:0.8rem">#7a8474 <span style="display:inline-block;width:14px;height:14px;background:#7a8474;border-radius:3px;vertical-align:middle;margin-left:6px"></span></td>
+          </tr>
+        </table>
+      </div>
+      <!-- "Parent" specs -->
+      <div>
+        <div style="font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:#131715;margin-bottom:12px;background:linear-gradient(135deg,#c9f05a,#a7d645);display:inline-block;padding:4px 12px;border-radius:6px">Word 2: &ldquo;Parent&rdquo;</div>
+        <table style="width:100%;font-size:0.85rem;border-collapse:collapse">
+          <tr style="border-bottom:1px solid rgba(19,23,21,0.06)">
+            <td style="padding:10px 0;color:#7a8474;width:140px">Font Family</td>
+            <td style="padding:10px 0;font-weight:600">Work Sans</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(19,23,21,0.06)">
+            <td style="padding:10px 0;color:#7a8474">Font Weight</td>
+            <td style="padding:10px 0;font-weight:600">700 (Bold)</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(19,23,21,0.06)">
+            <td style="padding:10px 0;color:#7a8474">Color (dark bg)</td>
+            <td style="padding:10px 0;font-family:'SF Mono','Fira Code',monospace;font-size:0.8rem">#ffffff <span style="display:inline-block;width:14px;height:14px;background:#fff;border:1px solid #ddd;border-radius:3px;vertical-align:middle;margin-left:6px"></span></td>
+          </tr>
+          <tr>
+            <td style="padding:10px 0;color:#7a8474">Color (light bg)</td>
+            <td style="padding:10px 0;font-family:'SF Mono','Fira Code',monospace;font-size:0.8rem">#131715 <span style="display:inline-block;width:14px;height:14px;background:#131715;border-radius:3px;vertical-align:middle;margin-left:6px"></span></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <!-- Shared specs -->
+    <div style="margin-top:28px;padding-top:24px;border-top:1px solid rgba(19,23,21,0.08)">
+      <div style="font-weight:600;font-size:0.9rem;margin-bottom:16px">Shared Properties</div>
+      <div style="display:flex;gap:40px;flex-wrap:wrap;font-size:0.85rem">
+        <div><span style="color:#7a8474">Letter Spacing</span><br><strong>-3% (-0.03em)</strong></div>
+        <div><span style="color:#7a8474">Kerning</span><br><strong>No extra gap between words</strong></div>
+        <div><span style="color:#7a8474">Case</span><br><strong>Title case (capital B, capital P)</strong></div>
+        <div><span style="color:#7a8474">Alignment</span><br><strong>Baseline-aligned, no vertical offset</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  TYPEFACE                                                   -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <h2 class="section-title">Typeface</h2>
+
+  <div class="font-hero">
+    <div class="font-hero-name">Work Sans</div>
+    <div class="font-hero-sub">Primary typeface &mdash; used across all product surfaces</div>
+    <div class="font-hero-alphabet">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</div>
+    <div class="font-hero-alphabet">a b c d e f g h i j k l m n o p q r s t u v w x y z</div>
+    <div class="font-hero-alphabet-bold">0 1 2 3 4 5 6 7 8 9 $ % . , &mdash; &rsquo;</div>
+    <div class="font-meta">
+      <div class="font-meta-item">Source<span>Google Fonts</span></div>
+      <div class="font-meta-item">Weights Used<span>300 &ndash; 800</span></div>
+      <div class="font-meta-item">Fallback Stack<span>system-ui, sans-serif</span></div>
+      <div class="font-meta-item">License<span>Open Font License (OFL)</span></div>
+    </div>
+  </div>
+
+  <div class="weight-grid">
+    <div class="weight-card">
+      <div class="weight-card-sample" style="font-weight:300">Aa</div>
+      <div class="weight-card-label">300 Light</div>
+    </div>
+    <div class="weight-card">
+      <div class="weight-card-sample" style="font-weight:400">Aa</div>
+      <div class="weight-card-label">400 Regular</div>
+    </div>
+    <div class="weight-card">
+      <div class="weight-card-sample" style="font-weight:500">Aa</div>
+      <div class="weight-card-label">500 Medium</div>
+    </div>
+    <div class="weight-card">
+      <div class="weight-card-sample" style="font-weight:600">Aa</div>
+      <div class="weight-card-label">600 Semi-Bold</div>
+    </div>
+    <div class="weight-card">
+      <div class="weight-card-sample" style="font-weight:700">Aa</div>
+      <div class="weight-card-label">700 Bold</div>
+    </div>
+    <div class="weight-card">
+      <div class="weight-card-sample" style="font-weight:800">Aa</div>
+      <div class="weight-card-label">800 Extra-Bold</div>
+    </div>
+  </div>
+
+  <!-- Type Scale -->
+  <div class="type-scale">
+    <div class="type-scale-row">
+      <div class="type-scale-meta">Headline XL<br>clamp(2rem, 8vw, 3.2rem) / 700</div>
+      <div class="type-scale-sample" style="font-size:2.8rem;font-weight:700">Stop guessing.</div>
+    </div>
+    <div class="type-scale-row">
+      <div class="type-scale-meta">Headline LG<br>2.2rem / 700</div>
+      <div class="type-scale-sample" style="font-size:2.2rem;font-weight:700">Know your number.</div>
+    </div>
+    <div class="type-scale-row">
+      <div class="type-scale-meta">Headline MD<br>1.7rem / 700</div>
+      <div class="type-scale-sample" style="font-size:1.7rem;font-weight:700">The budgeting parent you need.</div>
+    </div>
+    <div class="type-scale-row">
+      <div class="type-scale-meta">Body<br>1.15rem / 400</div>
+      <div class="type-scale-sample" style="font-size:1.15rem;font-weight:400">Your money deserves a parent.</div>
+    </div>
+    <div class="type-scale-row">
+      <div class="type-scale-meta">Sub<br>1rem / 400</div>
+      <div class="type-scale-sample" style="font-size:1rem;font-weight:400;color:var(--color-sage)">Safe-to-spend tells you what&rsquo;s actually yours.</div>
+    </div>
+    <div class="type-scale-row">
+      <div class="type-scale-meta">Label<br>0.72rem / 600 uppercase</div>
+      <div class="type-scale-sample" style="font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:var(--color-lime)">Budgeting Parent</div>
+    </div>
+    <div class="type-scale-row">
+      <div class="type-scale-meta">Compact<br>0.68rem / 500 tracked</div>
+      <div class="type-scale-sample" style="font-size:0.68rem;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--color-sage)">Updated 3m ago</div>
+    </div>
+  </div>
+
+  <div class="clamp-demo">
+    <div class="clamp-label">Safe to spend</div>
+    <div class="clamp-value">$1,247</div>
+    <div class="clamp-formula">font-size: clamp(1.6rem, 8vw, 2.6rem)</div>
+  </div>
+
+  <div class="token-row">
+    <span class="token-chip">Card radius: 22px</span>
+    <span class="token-chip lime">Chip radius: 999px</span>
+    <span class="token-chip">Input radius: 14-20px</span>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  COLOR PALETTE                                              -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <h2 class="section-title">Color Palette</h2>
+
+  <div class="color-grid">
+    <div class="color-card">
+      <div class="color-swatch" style="background: #131715;"></div>
+      <div class="color-info">
+        <div class="color-name">Ink</div>
+        <div class="color-hex">#131715</div>
+        <div class="color-var">--color-ink</div>
+        <div class="color-usage">Dark surfaces, primary text</div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background: #222C2C;"></div>
+      <div class="color-info">
+        <div class="color-name">Graphite</div>
+        <div class="color-hex">#222C2C</div>
+        <div class="color-var">--color-graphite</div>
+        <div class="color-usage">Secondary dark, card backgrounds</div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background: #7a8474;"></div>
+      <div class="color-info">
+        <div class="color-name">Sage</div>
+        <div class="color-hex">#7a8474</div>
+        <div class="color-var">--color-sage</div>
+        <div class="color-usage">Secondary text, labels, muted info</div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background: #c9f05a;"></div>
+      <div class="color-info">
+        <div class="color-name">Lime</div>
+        <div class="color-hex">#c9f05a</div>
+        <div class="color-var">--color-lime</div>
+        <div class="color-usage">Action, positive signals, CTA</div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background: #a7d645;"></div>
+      <div class="color-info">
+        <div class="color-name">Lime Accent</div>
+        <div class="color-hex">#a7d645</div>
+        <div class="color-var">--color-lime-accent</div>
+        <div class="color-usage">Gradient pair with Lime</div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background: #f3b457;"></div>
+      <div class="color-info">
+        <div class="color-name">Amber</div>
+        <div class="color-hex">#f3b457</div>
+        <div class="color-var">--color-amber</div>
+        <div class="color-usage">Warning states, caution signals</div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background: #ef4444;"></div>
+      <div class="color-info">
+        <div class="color-name">Danger</div>
+        <div class="color-hex">#ef4444</div>
+        <div class="color-var">--color-danger</div>
+        <div class="color-usage">Cash risk, destructive actions</div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background: #f4f8ec;"></div>
+      <div class="color-info">
+        <div class="color-name">Mist</div>
+        <div class="color-hex">#f4f8ec</div>
+        <div class="color-var">--color-mist</div>
+        <div class="color-usage">App background, page canvas</div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch checkerboard">
+        <div class="overlay" style="background: rgba(255, 255, 255, 0.78);"></div>
+      </div>
+      <div class="color-info">
+        <div class="color-name">Surface</div>
+        <div class="color-hex">rgba(255,255,255,0.78)</div>
+        <div class="color-var">--color-surface</div>
+        <div class="color-usage">Glass cards, frosted panels</div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background: #ffffff; border-bottom: 1px solid #eee;"></div>
+      <div class="color-info">
+        <div class="color-name">White</div>
+        <div class="color-hex">#ffffff</div>
+        <div class="color-var">--color-white</div>
+        <div class="color-usage">Pure white, card info areas</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  GRADIENTS                                                  -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <h2 class="section-title">Gradients</h2>
+  <div class="gradient-grid">
+    <div class="gradient-card">
+      <div class="gradient-swatch" style="background: linear-gradient(180deg, #1a211f 0%, #121614 100%);"></div>
+      <div class="gradient-info">
+        <div class="gradient-name">Dark Card</div>
+        <div class="gradient-css">linear-gradient(180deg, #1a211f 0%, #121614 100%)</div>
+      </div>
+    </div>
+    <div class="gradient-card">
+      <div class="gradient-swatch" style="background: linear-gradient(135deg, #c9f05a, #a7d645);"></div>
+      <div class="gradient-info">
+        <div class="gradient-name">Lime CTA</div>
+        <div class="gradient-css">linear-gradient(135deg, #c9f05a, #a7d645)</div>
+      </div>
+    </div>
+    <div class="gradient-card">
+      <div class="gradient-swatch" style="background: linear-gradient(145deg, rgba(19,23,21,0.92), rgba(45,55,47,0.84), rgba(19,23,21,0.95));"></div>
+      <div class="gradient-info">
+        <div class="gradient-name">Nav Pill</div>
+        <div class="gradient-css">linear-gradient(145deg, rgba(19,23,21,0.92), rgba(45,55,47,0.84), rgba(19,23,21,0.95))</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  SURFACE TREATMENTS                                         -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <h2 class="section-title">Surface Treatments</h2>
+  <div class="surface-grid">
+    <div class="surface-demo surface-glass">
+      <div>
+        <div class="surface-title">Glass Card</div>
+        <div class="surface-content">Frosted glass surface used for content cards, modals, and interactive panels throughout the app.</div>
+      </div>
+      <div class="surface-css">
+        background: rgba(255,255,255,0.78)<br>
+        backdrop-filter: blur(18px)<br>
+        border: 1px solid rgba(255,255,255,0.65)<br>
+        box-shadow: 0 12px 40px rgba(19,23,21,0.08)<br>
+        border-radius: 22px
+      </div>
+    </div>
+    <div class="surface-demo surface-dark">
+      <div>
+        <div class="surface-title">Dark Card</div>
+        <div class="surface-content">Rich dark gradient surface for hero panels, cash summary cards, and high-contrast feature sections.</div>
+      </div>
+      <div class="surface-css">
+        background: linear-gradient(180deg, #1a211f, #121614)<br>
+        box-shadow: 0 16px 48px rgba(19,23,21,0.22)<br>
+        border-radius: 22px
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  LINKEDIN BANNERS                                           -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+
+  <h2 class="section-title">LinkedIn Banners</h2>
+  <p style="font-size:0.9rem;color:var(--color-sage);margin-bottom:32px;margin-top:-16px">1584 &times; 396px &mdash; recommended LinkedIn profile/company banner size</p>
+
+  <!-- Banner 1: Signature -->
+  <div class="banner-wrapper">
+    <div class="banner-label">Banner 1 &mdash; Signature</div>
+    <div class="banner-preview" id="banner-1">
+      <div class="banner-inner" style="background:#131715;display:flex;align-items:stretch;position:relative;overflow:hidden;">
+        <!-- Left: big type area -->
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 0 0 100px;position:relative;z-index:2">
+          <div style="font-size:22px;letter-spacing:-0.03em;margin-bottom:24px"><span style="color:#7a8474;font-weight:400">Budgeting</span><span style="color:#fff;font-weight:700">Parent</span></div>
+          <div style="font-size:56px;font-weight:800;color:#fff;letter-spacing:-0.04em;line-height:1.08;margin-bottom:20px">The budgeting<br>parent you<br>need.</div>
+          <div style="font-size:19px;color:#7a8474;letter-spacing:0.01em">One number. One move a week.<br>No spreadsheets.</div>
+        </div>
+        <!-- Right: angled lime strip with product preview -->
+        <div style="width:580px;position:relative;overflow:hidden">
+          <!-- Angled lime background -->
+          <div style="position:absolute;top:0;bottom:0;left:60px;right:0;background:linear-gradient(160deg,#c9f05a 0%,#a7d645 100%);transform:skewX(-8deg);transform-origin:top left"></div>
+          <!-- Content on lime -->
+          <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 60px 0 100px">
+            <!-- Mock phone screen -->
+            <div style="background:#131715;border-radius:28px;padding:28px 24px;width:280px;box-shadow:0 20px 60px rgba(0,0,0,0.35)">
+              <div style="font-size:12px;color:#7a8474;margin-bottom:4px;text-align:center">Safe to spend</div>
+              <div style="font-size:48px;font-weight:700;color:#fff;letter-spacing:-0.04em;line-height:1;text-align:center;margin-bottom:4px">$226</div>
+              <div style="font-size:11px;color:#7a8474;text-align:center;margin-bottom:16px">until Friday</div>
+              <div style="display:flex;gap:8px">
+                <div style="flex:1;background:rgba(201,240,90,0.12);border-radius:10px;padding:10px 0;text-align:center">
+                  <div style="font-size:9px;color:#7a8474">Save</div>
+                  <div style="font-size:18px;font-weight:700;color:#c9f05a">$180</div>
+                </div>
+                <div style="flex:1;background:rgba(201,240,90,0.12);border-radius:10px;padding:10px 0;text-align:center">
+                  <div style="font-size:9px;color:#7a8474">Bills</div>
+                  <div style="font-size:18px;font-weight:700;color:#c9f05a">$847</div>
+                </div>
+              </div>
+            </div>
+            <div style="margin-top:16px;font-size:13px;font-weight:600;color:#131715;letter-spacing:0.02em">budgetingparent.com</div>
+          </div>
+        </div>
+        <!-- Subtle glow at seam -->
+        <div style="position:absolute;top:-100px;right:500px;width:300px;height:600px;background:radial-gradient(ellipse,rgba(201,240,90,0.06) 0%,transparent 70%);pointer-events:none;z-index:1"></div>
+      </div>
+    </div>
+    <button class="download-btn" onclick="downloadBanner('banner-1','BP_LinkedIn_Banner_Signature')">&#11015; Download PNG</button>
+  </div>
+
+  <!-- Banner 2: Conversational -->
+  <div class="banner-wrapper">
+    <div class="banner-label">Banner 2 &mdash; Conversational</div>
+    <div class="banner-preview" id="banner-2">
+      <div class="banner-inner" style="background:linear-gradient(170deg,#151a17 0%,#0f1210 100%);display:flex;align-items:center;padding:0 90px;position:relative;overflow:hidden;">
+        <!-- Dot grid pattern -->
+        <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(201,240,90,0.07) 1px,transparent 1px);background-size:32px 32px;pointer-events:none"></div>
+        <!-- Left copy -->
+        <div style="flex:1;position:relative;z-index:2">
+          <div style="font-size:42px;font-weight:700;color:#fff;letter-spacing:-0.03em;line-height:1.15;margin-bottom:20px">Your money<br>deserves a parent.</div>
+          <div style="font-size:18px;color:#7a8474;margin-bottom:28px;max-width:420px">AI-powered financial copilot that roasts your impulse buys and cheers your wins.</div>
+          <div style="display:inline-flex;gap:16px;align-items:center">
+            <div style="background:linear-gradient(135deg,#c9f05a,#a7d645);padding:12px 32px;border-radius:999px;font-size:16px;font-weight:600;color:#131715">Try it free</div>
+            <div style="font-size:14px;color:#7a8474">$6.70/mo after</div>
+          </div>
+        </div>
+        <!-- Right: chat bubbles -->
+        <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:14px;width:440px">
+          <!-- User bubble -->
+          <div style="align-self:flex-end">
+            <div style="background:linear-gradient(135deg,#c9f05a,#a7d645);padding:14px 22px;border-radius:18px 18px 4px 18px;font-size:16px;font-weight:500;color:#131715;max-width:320px">Can I afford $80 sneakers this week?</div>
+          </div>
+          <!-- Parent bubble -->
+          <div style="align-self:flex-start">
+            <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);padding:16px 22px;border-radius:18px 18px 18px 4px;font-size:15px;color:#fff;max-width:380px;line-height:1.5">
+              Pump the brakes, kiddo. You've got <span style="color:#c9f05a;font-weight:600">$226</span> safe to spend and rent hits in 3 days. Maybe wait till after Friday?
+            </div>
+          </div>
+          <!-- Wordmark -->
+          <div style="align-self:flex-end;margin-top:4px">
+            <span style="font-size:22px;color:#7a8474;font-weight:400">Budgeting</span><span style="font-size:22px;color:#fff;font-weight:700">Parent</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="download-btn" onclick="downloadBanner('banner-2','BP_LinkedIn_Banner_Conversational')">&#11015; Download PNG</button>
+  </div>
+
+  <!-- Banner 3: Minimal Split -->
+  <div class="banner-wrapper">
+    <div class="banner-label">Banner 3 &mdash; Minimal</div>
+    <div class="banner-preview" id="banner-3">
+      <div class="banner-inner" style="display:flex;align-items:stretch;position:relative;overflow:hidden;">
+        <!-- Left half: mist -->
+        <div style="flex:1;background:#f4f8ec;display:flex;flex-direction:column;justify-content:center;padding:0 80px;position:relative">
+          <div style="position:absolute;bottom:-80px;right:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(201,240,90,0.2) 0%,transparent 70%);pointer-events:none"></div>
+          <div style="font-size:22px;letter-spacing:-0.03em;margin-bottom:20px;position:relative"><span style="color:#7a8474;font-weight:400">Budgeting</span><span style="color:#131715;font-weight:700">Parent</span></div>
+          <div style="font-size:46px;font-weight:700;color:#131715;letter-spacing:-0.03em;line-height:1.12;margin-bottom:16px;position:relative">The budgeting<br>parent you need.</div>
+          <div style="font-size:18px;color:#7a8474;position:relative">One number. One move a week.<br>No spreadsheets.</div>
+        </div>
+        <!-- Right half: dark with metrics -->
+        <div style="width:620px;background:linear-gradient(180deg,#1a211f 0%,#121614 100%);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:0 60px;position:relative">
+          <div style="position:absolute;top:-60px;left:-60px;width:250px;height:250px;background:radial-gradient(circle,rgba(201,240,90,0.08) 0%,transparent 70%);pointer-events:none"></div>
+          <!-- Big number -->
+          <div style="text-align:center;margin-bottom:28px;position:relative">
+            <div style="font-size:13px;color:#7a8474;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px">Safe to spend</div>
+            <div style="font-size:80px;font-weight:800;color:#fff;letter-spacing:-0.05em;line-height:1">$226</div>
+            <div style="font-size:15px;color:#7a8474;margin-top:6px">until Friday</div>
+          </div>
+          <!-- Three mini stats -->
+          <div style="display:flex;gap:16px;position:relative">
+            <div style="background:rgba(201,240,90,0.08);border:1px solid rgba(201,240,90,0.12);border-radius:14px;padding:14px 22px;text-align:center">
+              <div style="font-size:10px;color:#7a8474;text-transform:uppercase;letter-spacing:0.08em">Save</div>
+              <div style="font-size:24px;font-weight:700;color:#c9f05a;margin-top:2px">$180</div>
+            </div>
+            <div style="background:rgba(201,240,90,0.08);border:1px solid rgba(201,240,90,0.12);border-radius:14px;padding:14px 22px;text-align:center">
+              <div style="font-size:10px;color:#7a8474;text-transform:uppercase;letter-spacing:0.08em">Bills</div>
+              <div style="font-size:24px;font-weight:700;color:#c9f05a;margin-top:2px">$847</div>
+            </div>
+            <div style="background:rgba(201,240,90,0.08);border:1px solid rgba(201,240,90,0.12);border-radius:14px;padding:14px 22px;text-align:center">
+              <div style="font-size:10px;color:#7a8474;text-transform:uppercase;letter-spacing:0.08em">Burn</div>
+              <div style="font-size:24px;font-weight:700;color:#c9f05a;margin-top:2px">12d</div>
+            </div>
+          </div>
+          <div style="margin-top:24px;font-size:13px;color:#7a8474;position:relative">budgetingparent.com</div>
+        </div>
+      </div>
+    </div>
+    <button class="download-btn" onclick="downloadBanner('banner-3','BP_LinkedIn_Banner_Minimal')">&#11015; Download PNG</button>
+  </div>
+
+  <!-- Banner 4: Gradient Wave -->
+  <div class="banner-wrapper">
+    <div class="banner-label">Banner 4 &mdash; Gradient Wave</div>
+    <div class="banner-preview" id="banner-4">
+      <div class="banner-inner" style="background:linear-gradient(135deg,#0f1210 0%,#131715 35%,#1a2a1f 70%,#131715 100%);display:flex;align-items:center;padding:0 100px;position:relative;overflow:hidden;">
+        <!-- Large lime arc -->
+        <div style="position:absolute;right:-200px;top:-300px;width:900px;height:900px;border-radius:50%;border:2px solid rgba(201,240,90,0.08);pointer-events:none"></div>
+        <div style="position:absolute;right:-150px;top:-250px;width:800px;height:800px;border-radius:50%;border:1px solid rgba(201,240,90,0.05);pointer-events:none"></div>
+        <div style="position:absolute;right:-100px;top:-200px;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(201,240,90,0.04) 0%,transparent 70%);pointer-events:none"></div>
+        <!-- Left content -->
+        <div style="flex:1;position:relative;z-index:2">
+          <div style="margin-bottom:32px">
+            <span style="font-size:24px;color:#7a8474;font-weight:400">Budgeting</span><span style="font-size:24px;color:#fff;font-weight:700">Parent</span>
+          </div>
+          <div style="font-size:48px;font-weight:700;color:#fff;letter-spacing:-0.03em;line-height:1.12;margin-bottom:16px">Stop guessing.<br>Start knowing.</div>
+          <div style="font-size:18px;color:#7a8474">AI financial copilot for your 20s</div>
+        </div>
+        <!-- Right: stacked glass cards -->
+        <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:14px;width:380px">
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center">
+            <div style="font-size:14px;color:#7a8474">Safe to spend</div>
+            <div style="font-size:32px;font-weight:700;color:#fff;letter-spacing:-0.03em">$226</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center">
+            <div style="font-size:14px;color:#7a8474">Safe to save</div>
+            <div style="font-size:32px;font-weight:700;color:#c9f05a;letter-spacing:-0.03em">$180</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center">
+            <div style="font-size:14px;color:#7a8474">Weekly action</div>
+            <div style="font-size:16px;font-weight:600;color:#c9f05a">Transfer $45 to savings</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="download-btn" onclick="downloadBanner('banner-4','BP_LinkedIn_Banner_GradientWave')">&#11015; Download PNG</button>
+  </div>
+
+  <!-- Banner 5: Bold Typography -->
+  <div class="banner-wrapper">
+    <div class="banner-label">Banner 5 &mdash; Bold Type</div>
+    <div class="banner-preview" id="banner-5">
+      <div class="banner-inner" style="background:#131715;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+        <!-- Giant background number -->
+        <div style="position:absolute;right:80px;top:50%;transform:translateY(-50%);font-size:320px;font-weight:800;color:rgba(201,240,90,0.04);letter-spacing:-0.05em;line-height:1;pointer-events:none">$226</div>
+        <!-- Centered content -->
+        <div style="position:relative;z-index:2;text-align:center;max-width:900px">
+          <div style="font-size:15px;font-weight:600;text-transform:uppercase;letter-spacing:0.2em;color:#c9f05a;margin-bottom:24px">Financial Copilot for Gen Z</div>
+          <div style="font-size:72px;font-weight:800;color:#fff;letter-spacing:-0.04em;line-height:1.05;margin-bottom:20px">Know your<br>number.</div>
+          <div style="font-size:20px;color:#7a8474;margin-bottom:28px">One safe-to-spend number. One weekly action. Zero spreadsheets.</div>
+          <div style="display:inline-flex;align-items:center;gap:20px">
+            <div style="background:linear-gradient(135deg,#c9f05a,#a7d645);padding:14px 40px;border-radius:999px;font-size:17px;font-weight:600;color:#131715">Get started free</div>
+            <span style="font-size:20px;color:#7a8474;font-weight:400">Budgeting</span><span style="font-size:20px;color:#fff;font-weight:700">Parent</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="download-btn" onclick="downloadBanner('banner-5','BP_LinkedIn_Banner_BoldType')">&#11015; Download PNG</button>
+  </div>
+
+  <!-- Banner 6: Dashboard Preview -->
+  <div class="banner-wrapper">
+    <div class="banner-label">Banner 6 &mdash; Dashboard</div>
+    <div class="banner-preview" id="banner-6">
+      <div class="banner-inner" style="background:linear-gradient(180deg,#1a211f 0%,#121614 100%);display:flex;align-items:center;padding:0 80px;position:relative;overflow:hidden;">
+        <!-- Subtle grid -->
+        <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(201,240,90,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,240,90,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none"></div>
+        <!-- Left copy -->
+        <div style="flex:1;position:relative;z-index:2;padding-right:60px">
+          <div style="font-size:22px;letter-spacing:-0.03em;margin-bottom:20px"><span style="color:#7a8474;font-weight:400">Budgeting</span><span style="color:#fff;font-weight:700">Parent</span></div>
+          <div style="font-size:44px;font-weight:700;color:#fff;letter-spacing:-0.03em;line-height:1.15;margin-bottom:16px">The budgeting<br>parent you need.</div>
+          <div style="font-size:17px;color:#7a8474;margin-bottom:28px">AI copilot that turns messy cash flow<br>into clear weekly decisions.</div>
+          <div style="display:inline-block;background:linear-gradient(135deg,#c9f05a,#a7d645);padding:12px 36px;border-radius:999px;font-size:16px;font-weight:600;color:#131715">Start for free</div>
+        </div>
+        <!-- Right: mock dashboard -->
+        <div style="position:relative;z-index:2;width:560px">
+          <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:22px;padding:28px;box-shadow:0 20px 60px rgba(0,0,0,0.3)">
+            <!-- Top bar -->
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+              <div style="font-size:14px;font-weight:600;color:#fff">Dashboard</div>
+              <div style="font-size:11px;color:#7a8474">Updated 3m ago</div>
+            </div>
+            <!-- Big number -->
+            <div style="text-align:center;margin-bottom:20px">
+              <div style="font-size:11px;color:#7a8474;text-transform:uppercase;letter-spacing:0.1em">Safe to spend</div>
+              <div style="font-size:56px;font-weight:800;color:#fff;letter-spacing:-0.04em;line-height:1.1">$226</div>
+              <div style="font-size:12px;color:#7a8474">until Friday</div>
+            </div>
+            <!-- Obligation row -->
+            <div style="display:flex;gap:10px">
+              <div style="flex:1;background:rgba(201,240,90,0.06);border:1px solid rgba(201,240,90,0.1);border-radius:12px;padding:12px;text-align:center">
+                <div style="font-size:9px;color:#7a8474;text-transform:uppercase;letter-spacing:0.06em">Bills</div>
+                <div style="font-size:20px;font-weight:700;color:#fff;margin:4px 0">$847</div>
+                <div style="font-size:9px;color:#7a8474">4 due</div>
+              </div>
+              <div style="flex:1;background:rgba(201,240,90,0.06);border:1px solid rgba(201,240,90,0.1);border-radius:12px;padding:12px;text-align:center">
+                <div style="font-size:9px;color:#7a8474;text-transform:uppercase;letter-spacing:0.06em">Subs</div>
+                <div style="font-size:20px;font-weight:700;color:#fff;margin:4px 0">$62</div>
+                <div style="font-size:9px;color:#7a8474">3 active</div>
+              </div>
+              <div style="flex:1;background:rgba(201,240,90,0.06);border:1px solid rgba(201,240,90,0.1);border-radius:12px;padding:12px;text-align:center">
+                <div style="font-size:9px;color:#7a8474;text-transform:uppercase;letter-spacing:0.06em">Debt</div>
+                <div style="font-size:20px;font-weight:700;color:#f3b457;margin:4px 0">$4.2k</div>
+                <div style="font-size:9px;color:#7a8474">min $120</div>
+              </div>
+              <div style="flex:1;background:rgba(201,240,90,0.06);border:1px solid rgba(201,240,90,0.1);border-radius:12px;padding:12px;text-align:center">
+                <div style="font-size:9px;color:#7a8474;text-transform:uppercase;letter-spacing:0.06em">Paycheck</div>
+                <div style="font-size:20px;font-weight:700;color:#c9f05a;margin:4px 0">Fri</div>
+                <div style="font-size:9px;color:#7a8474">$2,400</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="download-btn" onclick="downloadBanner('banner-6','BP_LinkedIn_Banner_Dashboard')">&#11015; Download PNG</button>
+  </div>
+
+  <!-- Banner 7: Lime Statement -->
+  <div class="banner-wrapper">
+    <div class="banner-label">Banner 7 &mdash; Lime Statement</div>
+    <div class="banner-preview" id="banner-7">
+      <div class="banner-inner" style="background:linear-gradient(135deg,#c9f05a 0%,#a7d645 60%,#8ec435 100%);display:flex;align-items:center;padding:0 100px;position:relative;overflow:hidden;">
+        <!-- Dark circles -->
+        <div style="position:absolute;left:-120px;top:-120px;width:500px;height:500px;border-radius:50%;background:rgba(19,23,21,0.04);pointer-events:none"></div>
+        <div style="position:absolute;right:-80px;bottom:-180px;width:400px;height:400px;border-radius:50%;background:rgba(19,23,21,0.03);pointer-events:none"></div>
+        <!-- Left -->
+        <div style="flex:1;position:relative;z-index:2">
+          <div style="font-size:22px;letter-spacing:-0.03em;margin-bottom:20px"><span style="color:rgba(19,23,21,0.45);font-weight:400">Budgeting</span><span style="color:#131715;font-weight:700">Parent</span></div>
+          <div style="font-size:52px;font-weight:800;color:#131715;letter-spacing:-0.04em;line-height:1.08;margin-bottom:16px">The budgeting<br>parent you need.</div>
+          <div style="font-size:19px;color:rgba(19,23,21,0.55)">One number. One move a week. No spreadsheets.</div>
+        </div>
+        <!-- Right: dark card -->
+        <div style="position:relative;z-index:2">
+          <div style="background:#131715;border-radius:24px;padding:36px 44px;box-shadow:0 24px 64px rgba(0,0,0,0.25);min-width:340px">
+            <div style="text-align:center;margin-bottom:24px">
+              <div style="font-size:13px;color:#7a8474;margin-bottom:6px">Safe to spend</div>
+              <div style="font-size:64px;font-weight:800;color:#fff;letter-spacing:-0.04em;line-height:1">$226</div>
+              <div style="font-size:13px;color:#7a8474;margin-top:6px">until Friday</div>
+            </div>
+            <div style="height:1px;background:rgba(255,255,255,0.08);margin-bottom:20px"></div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div style="text-align:center">
+                <div style="font-size:10px;color:#7a8474;text-transform:uppercase;letter-spacing:0.06em">Save</div>
+                <div style="font-size:22px;font-weight:700;color:#c9f05a">$180</div>
+              </div>
+              <div style="width:1px;height:36px;background:rgba(255,255,255,0.08)"></div>
+              <div style="text-align:center">
+                <div style="font-size:10px;color:#7a8474;text-transform:uppercase;letter-spacing:0.06em">Bills</div>
+                <div style="font-size:22px;font-weight:700;color:#fff">$847</div>
+              </div>
+              <div style="width:1px;height:36px;background:rgba(255,255,255,0.08)"></div>
+              <div style="text-align:center">
+                <div style="font-size:10px;color:#7a8474;text-transform:uppercase;letter-spacing:0.06em">Burn</div>
+                <div style="font-size:22px;font-weight:700;color:#fff">12d</div>
+              </div>
+            </div>
+            <div style="text-align:center;margin-top:20px;font-size:12px;color:#7a8474">budgetingparent.com</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="download-btn" onclick="downloadBanner('banner-7','BP_LinkedIn_Banner_LimeStatement')">&#11015; Download PNG</button>
+  </div>
+
+  <!-- Banner 8: Personal Brand -->
+  <div class="banner-wrapper">
+    <div class="banner-label">Banner 8 &mdash; Founder / Personal</div>
+    <div class="banner-preview" id="banner-8">
+      <div class="banner-inner" style="background:#131715;display:flex;align-items:center;padding:0 100px;position:relative;overflow:hidden;">
+        <!-- Diagonal line accent -->
+        <div style="position:absolute;top:0;bottom:0;left:55%;width:1px;background:linear-gradient(180deg,transparent 0%,rgba(201,240,90,0.15) 30%,rgba(201,240,90,0.15) 70%,transparent 100%);pointer-events:none"></div>
+        <div style="position:absolute;top:0;bottom:0;left:calc(55% + 8px);width:1px;background:linear-gradient(180deg,transparent 10%,rgba(201,240,90,0.06) 40%,rgba(201,240,90,0.06) 60%,transparent 90%);pointer-events:none"></div>
+        <!-- Left: founder intro -->
+        <div style="flex:1;position:relative;z-index:2;padding-right:80px">
+          <div style="font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.18em;color:#c9f05a;margin-bottom:24px">Building in public</div>
+          <div style="font-size:40px;font-weight:700;color:#fff;letter-spacing:-0.03em;line-height:1.15;margin-bottom:16px">Building the financial<br>copilot I wish I had<br>at 22.</div>
+          <div style="font-size:17px;color:#7a8474">Founder &amp; Creator</div>
+        </div>
+        <!-- Right: product + brand -->
+        <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-end;gap:20px;width:520px">
+          <!-- Product name large -->
+          <div>
+            <span style="font-size:36px;color:#7a8474;font-weight:400">Budgeting</span><span style="font-size:36px;color:#fff;font-weight:700">Parent</span>
+          </div>
+          <!-- Tagline -->
+          <div style="font-size:18px;color:#7a8474;text-align:right">The budgeting parent you need.<br>One number. One move a week.</div>
+          <!-- Mini metrics -->
+          <div style="display:flex;gap:12px">
+            <div style="background:rgba(201,240,90,0.06);border:1px solid rgba(201,240,90,0.1);border-radius:12px;padding:12px 20px;text-align:center">
+              <div style="font-size:9px;color:#7a8474;text-transform:uppercase;letter-spacing:0.06em">Spend</div>
+              <div style="font-size:20px;font-weight:700;color:#fff">$226</div>
+            </div>
+            <div style="background:rgba(201,240,90,0.06);border:1px solid rgba(201,240,90,0.1);border-radius:12px;padding:12px 20px;text-align:center">
+              <div style="font-size:9px;color:#7a8474;text-transform:uppercase;letter-spacing:0.06em">Save</div>
+              <div style="font-size:20px;font-weight:700;color:#c9f05a">$180</div>
+            </div>
+            <div style="background:rgba(201,240,90,0.06);border:1px solid rgba(201,240,90,0.1);border-radius:12px;padding:12px 20px;text-align:center">
+              <div style="font-size:9px;color:#7a8474;text-transform:uppercase;letter-spacing:0.06em">Action</div>
+              <div style="font-size:13px;font-weight:600;color:#c9f05a;margin-top:2px">Transfer $45</div>
+            </div>
+          </div>
+          <div style="font-size:13px;color:#7a8474">budgetingparent.com</div>
+        </div>
+      </div>
+    </div>
+    <button class="download-btn" onclick="downloadBanner('banner-8','BP_LinkedIn_Banner_Founder')">&#11015; Download PNG</button>
+  </div>
+
+  <!-- Banner 9: Classic Dark -->
+  <div class="banner-wrapper">
+    <div class="banner-label">Banner 9 &mdash; Classic Dark</div>
+    <div class="banner-preview" id="banner-9">
+      <div class="banner-inner" style="background:linear-gradient(135deg,#131715 0%,#1a211f 40%,#121614 100%);display:flex;align-items:center;justify-content:space-between;padding:0 100px;position:relative;overflow:hidden;">
+        <!-- Lime glow top-right -->
+        <div style="position:absolute;top:-120px;right:-40px;width:600px;height:600px;background:radial-gradient(circle,rgba(201,240,90,0.1) 0%,transparent 65%);pointer-events:none"></div>
+        <!-- Lime glow bottom-left -->
+        <div style="position:absolute;bottom:-200px;left:200px;width:500px;height:500px;background:radial-gradient(circle,rgba(201,240,90,0.06) 0%,transparent 65%);pointer-events:none"></div>
+        <!-- Left content -->
+        <div style="position:relative;z-index:1">
+          <div style="font-size:24px;letter-spacing:-0.03em;margin-bottom:20px"><span style="color:#7a8474;font-weight:400">Budgeting</span><span style="color:#fff;font-weight:700">Parent</span></div>
+          <div style="font-size:52px;font-weight:700;color:#fff;letter-spacing:-0.03em;line-height:1.15;margin-bottom:16px;max-width:700px">The budgeting parent<br>you need.</div>
+          <div style="font-size:22px;color:#7a8474;max-width:550px">One number. One move a week. No spreadsheets.</div>
+        </div>
+        <!-- Right: dark card with metric -->
+        <div style="position:relative;z-index:1;text-align:right">
+          <div style="background:linear-gradient(180deg,#1a211f,#121614);border-radius:22px;padding:36px 48px;box-shadow:0 16px 48px rgba(19,23,21,0.4);display:inline-block;border:1px solid rgba(201,240,90,0.08)">
+            <div style="font-size:16px;color:#7a8474;margin-bottom:8px">Safe to spend</div>
+            <div style="font-size:64px;font-weight:700;color:#fff;letter-spacing:-0.04em;line-height:1">$226</div>
+            <div style="font-size:16px;color:#7a8474;margin-top:8px">until Friday</div>
+          </div>
+          <div style="margin-top:20px;font-size:16px;color:#7a8474">budgetingparent.com</div>
+        </div>
+      </div>
+    </div>
+    <button class="download-btn" onclick="downloadBanner('banner-9','BP_LinkedIn_Banner_ClassicDark')">&#11015; Download PNG</button>
+  </div>
+
+  <!-- Banner 10: Premium -->
+  <div class="banner-wrapper">
+    <div class="banner-label">Banner 10 &mdash; Premium</div>
+    <div class="banner-preview" id="banner-10">
+      <div class="banner-inner" style="background:linear-gradient(135deg,#131715 0%,#1a2a1f 50%,#1a211f 100%);display:flex;align-items:center;padding:0 100px;position:relative;overflow:hidden;">
+        <!-- Lime gradient overlay right half -->
+        <div style="position:absolute;top:0;right:0;bottom:0;width:50%;background:linear-gradient(135deg,transparent 0%,rgba(201,240,90,0.08) 50%,rgba(201,240,90,0.15) 100%);pointer-events:none"></div>
+        <!-- Left content -->
+        <div style="flex:1;position:relative;z-index:1">
+          <div style="font-size:16px;font-weight:600;text-transform:uppercase;letter-spacing:0.14em;color:#c9f05a;margin-bottom:24px">Financial Copilot for Gen Z</div>
+          <div style="font-size:48px;font-weight:700;color:#fff;letter-spacing:-0.03em;line-height:1.15;margin-bottom:20px">Know your number.<br>Make one move.</div>
+          <div style="font-size:20px;color:#7a8474">Safe-to-spend &bull; AI Parent &bull; Weekly actions</div>
+        </div>
+        <!-- Right: metric cards + wordmark -->
+        <div style="position:relative;z-index:1;display:flex;gap:28px;align-items:center">
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="background:rgba(201,240,90,0.1);border:1px solid rgba(201,240,90,0.15);border-radius:16px;padding:20px 28px;text-align:center">
+              <div style="font-size:14px;color:#7a8474">Safe to spend</div>
+              <div style="font-size:36px;font-weight:700;color:#c9f05a">$226</div>
+            </div>
+            <div style="background:rgba(201,240,90,0.1);border:1px solid rgba(201,240,90,0.15);border-radius:16px;padding:20px 28px;text-align:center">
+              <div style="font-size:14px;color:#7a8474">Safe to save</div>
+              <div style="font-size:36px;font-weight:700;color:#c9f05a">$180</div>
+            </div>
+          </div>
+          <div style="text-align:center">
+            <div style="font-size:28px;margin-bottom:8px"><span style="color:#7a8474;font-weight:400">Budgeting</span><span style="color:#fff;font-weight:700">Parent</span></div>
+            <div style="font-size:14px;color:#7a8474">budgetingparent.com</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="download-btn" onclick="downloadBanner('banner-10','BP_LinkedIn_Banner_Premium')">&#11015; Download PNG</button>
+  </div>
+
+</div>
+
+<script>
+  // Scale banners to fit container width
+  function scaleBanners() {
+    document.querySelectorAll('.banner-preview').forEach(function(preview) {
+      var inner = preview.querySelector('.banner-inner');
+      if (!inner) return;
+      var w = preview.offsetWidth;
+      var scale = w / 1584;
+      inner.style.transform = 'scale(' + scale + ')';
+      preview.style.height = Math.round(396 * scale) + 'px';
+    });
+  }
+  window.addEventListener('load', scaleBanners);
+  window.addEventListener('resize', scaleBanners);
+
+  function downloadLogo(id, filename, targetWidth, transparent) {
+    var el = document.getElementById(id);
+    var btn = event.target.closest('.download-btn');
+    var origText = btn.textContent;
+    btn.textContent = 'Rendering...';
+    btn.disabled = true;
+
+    var clone = document.createElement('div');
+    clone.style.cssText = 'position:fixed;left:-9999px;top:0;z-index:-1;font-family:Work Sans,sans-serif;font-size:72px;letter-spacing:-0.03em;padding:40px 60px;white-space:nowrap;display:inline-block;';
+
+    if (transparent) {
+      clone.style.background = 'transparent';
+      // For transparent, use white text for "Parent" (works on any bg)
+      var s1 = document.createElement('span');
+      s1.style.cssText = 'color:#7a8474;font-weight:400';
+      s1.textContent = 'Budgeting';
+      var s2 = document.createElement('span');
+      s2.style.cssText = 'color:' + (id === 'logo-dark' ? '#ffffff' : '#131715') + ';font-weight:700';
+      s2.textContent = 'Parent';
+      clone.appendChild(s1);
+      clone.appendChild(s2);
+    } else if (id === 'logo-dark') {
+      clone.style.background = 'linear-gradient(180deg,#1a211f 0%,#121614 100%)';
+      var s1 = document.createElement('span');
+      s1.style.cssText = 'color:#7a8474;font-weight:400';
+      s1.textContent = 'Budgeting';
+      var s2 = document.createElement('span');
+      s2.style.cssText = 'color:#ffffff;font-weight:700';
+      s2.textContent = 'Parent';
+      clone.appendChild(s1);
+      clone.appendChild(s2);
+    } else {
+      clone.style.background = '#f4f8ec';
+      var s1 = document.createElement('span');
+      s1.style.cssText = 'color:#7a8474;font-weight:400';
+      s1.textContent = 'Budgeting';
+      var s2 = document.createElement('span');
+      s2.style.cssText = 'color:#131715;font-weight:700';
+      s2.textContent = 'Parent';
+      clone.appendChild(s1);
+      clone.appendChild(s2);
+    }
+
+    document.body.appendChild(clone);
+
+    requestAnimationFrame(function() {
+      var naturalW = clone.offsetWidth;
+      var naturalH = clone.offsetHeight;
+      var scale = targetWidth / naturalW;
+
+      html2canvas(clone, {
+        width: naturalW,
+        height: naturalH,
+        scale: scale,
+        useCORS: true,
+        backgroundColor: transparent ? null : undefined,
+        logging: false,
+      }).then(function(canvas) {
+        document.body.removeChild(clone);
+        var link = document.createElement('a');
+        var suffix = transparent ? '_transparent' : '';
+        link.download = filename + '_' + targetWidth + 'px' + suffix + '.png';
+        link.href = canvas.toDataURL('image/png');
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        btn.textContent = 'Downloaded!';
+        setTimeout(function() { btn.textContent = origText; btn.disabled = false; }, 2000);
+      }).catch(function(err) {
+        console.error('Logo download error:', err);
+        if (clone.parentNode) document.body.removeChild(clone);
+        btn.textContent = 'Error - try again';
+        setTimeout(function() { btn.textContent = origText; btn.disabled = false; }, 2000);
+      });
+    });
+  }
+
+  function downloadBanner(id, filename) {
+    var bannerEl = document.getElementById(id);
+    var inner = bannerEl.querySelector('.banner-inner');
+    var btn = event.target.closest('.download-btn');
+    var origText = btn.textContent;
+    btn.textContent = 'Rendering...';
+    btn.disabled = true;
+
+    var clone = inner.cloneNode(true);
+    clone.style.transform = 'none';
+    clone.style.position = 'fixed';
+    clone.style.left = '-9999px';
+    clone.style.top = '0';
+    clone.style.width = '1584px';
+    clone.style.height = '396px';
+    clone.style.zIndex = '-1';
+    document.body.appendChild(clone);
+
+    requestAnimationFrame(function() {
+      html2canvas(clone, {
+        width: 1584,
+        height: 396,
+        scale: 1,
+        useCORS: true,
+        backgroundColor: null,
+        logging: false,
+      }).then(function(canvas) {
+        document.body.removeChild(clone);
+        var link = document.createElement('a');
+        link.download = filename + '.png';
+        link.href = canvas.toDataURL('image/png');
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        btn.textContent = 'Downloaded!';
+        setTimeout(function() { btn.textContent = origText; btn.disabled = false; }, 2000);
+      }).catch(function(err) {
+        console.error('Download error:', err);
+        if (clone.parentNode) document.body.removeChild(clone);
+        btn.textContent = 'Error - try again';
+        setTimeout(function() { btn.textContent = origText; btn.disabled = false; }, 2000);
+      });
+    });
+  }
+</script>
+</body>
+</html>
